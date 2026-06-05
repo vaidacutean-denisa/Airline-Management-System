@@ -1,6 +1,6 @@
 # Airline Management System
 
-A robust, object-oriented console-based application designed to manage airline operations, including fleet logistics, route networks, flight scheduling, and personnel management.
+A robust, object-oriented console-based airline management application designed to handle fleet logistics, route planning, flight scheduling, and personnel management.
 
 ## 🚀 Key Features
 
@@ -10,17 +10,56 @@ A robust, object-oriented console-based application designed to manage airline o
 - **HR Module**: Comprehensive management of employees and passengers.
 - **Data Integrity**: Defensive programming with automated validation for all business operations.
 
+
+## 🏗️ Architecture
+
+The application follows a layered architecture:
+
+- Models: Domain entities
+- Repository Layer: Database access and persistence
+- Service Layer: Business rules and validations
+- View Layer: Console-based user interface
+
+This separation improves maintainability, testability, and scalability.
+
+
 ## 🛠️ Technical Layer
 
 - **Language**: Java (JDK 21)
-- **Architecture**: Service-Repository pattern for clear separation of concerns.
+- **Database**: MySQL
+- **Database Access**: JDBC
+- **Architecture**: Service-Repository pattern for clear separation of concerns
 - **Version Control**: Git
+
+
+## 🔧 Persistence Layer
+
+The application uses plain JDBC for database interaction, implementing CRUD operations through a dedicated repository layer without relying on ORM frameworks.
+
 
 ## 📋 Getting Started
 
 ### Prerequisites
 - JDK 21 or higher
-- Maven (for dependency management)
+- Database: MySQL Server
+- Maven 3.x (for dependency management)
+  
+## 🗄️ Database Setup
+1. Ensure MySQL Server is running.
+2. Create the database: `CREATE DATABASE airline_db;`
+3. Import the schema and initial data:
+   ```bash
+   mysql -u airline_admin -p airline_db < schema.sql
+   ```
+
+## ⚙️ Database Configuration
+
+Before running the application, configure the database connection settings in the appropriate JDBC configuration class:
+
+- Database URL
+- Username
+- Password
+  
 
 ### Running the Application
 1. Clone the repository:
@@ -36,7 +75,7 @@ A robust, object-oriented console-based application designed to manage airline o
    mvn compile exec:java -Dexec.mainClass="airlinesystem.Main"
    ```
 
-## Project Structure
+## 📂 Project Structure
 ```text
 src/main/java/airlinesystem/
 ├── models/       # Data entities (Flight, Pilot, Airplane, etc.)
